@@ -1,0 +1,11 @@
+- [x] dựng cluster vault
+- [x] thiết kế cấu trúc tổ trức dữ liệu key của vault
+- [x] tạo key demo, verify khi chạy thử pipeline
+- [x] viết hàm mới
+- [x] setup pipeline
+	- [x] tạo lib mới dev sec op cho jenkins 
+	- [x] lấy pipeline mẫu 
+	- [x] namespace vhht
+	- [x] tạo bộ value key kv v2
+	- [x] tạo policy cicd 
+	- [x] tạo app role policy

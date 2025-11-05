@@ -1,0 +1,19 @@
+- [ ] Sơ đồ 3 node, nhưng ví dụ cấu hình thì 2 node ? 
+- [ ] Sơ đồ logic ? 
+	- [ ] Workflow ví dụ điển hình ? 
+	- [ ] Input, Output
+- [ ] Tài liệu quản trị ? Vận hành ? Document chính xác để follow theo ?  
+- [ ] Config ?
+	- [ ] 9084, 8084. Port 18083 ? vai trò của từng port ? 
+	- [ ] Nginx ngoài việc đóng vai trò config sticky session thì phân tải xuống các node cơ chế như thế nào ? 
+	- [ ] Cơ chế đồng bộ dữ liệu read write giữa các node ? 
+	- [ ] Backup restore ?
+	- [ ] Haproxy or nginx ?
+- [ ] vận hành ? 
+	- [ ] monitor ? 
+	- [ ] promethes ? 
+	- [ ] các metrics quan trọng ? có thể collect bằng cli không ? 
+- [ ] Fail Over DR DC ? 
+	- [ ] trong mô hình 3 node, cần tối thiểu bao nhiêu node tồn tại để có thể hoạt động 1 hay 2 ? 
+	- [ ] Có thay trực tiếp nginx bằng LB được không ?
+	- [ ] Khi xảy ra session take over thì các node còn lại tăng tải lên bao nhiêu ? sizing như thế nào là hợp lý
