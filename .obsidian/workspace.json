@@ -1,0 +1,194 @@
+{
+  "main": {
+    "id": "52eda2baf4574451",
+    "type": "split",
+    "children": [
+      {
+        "id": "e41132d46b9d4ff5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "303bf15837ac6965",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "APM - ElasticStack/1. Overview.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1. Overview"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "213be8aa291f3f90",
+    "type": "split",
+    "children": [
+      {
+        "id": "436c24609e195900",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "49a72f7980eba53f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "514a76cc67434b17",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "27686e4de7952f6e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "42840ea8125aa221",
+    "type": "split",
+    "children": [
+      {
+        "id": "2fa83e072a5ed072",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "16708148b7d953d3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "APM - ElasticStack/1. Overview.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 1. Overview"
+            }
+          },
+          {
+            "id": "e1458cff7a3db090",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "APM - ElasticStack/1. Overview.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 1. Overview"
+            }
+          },
+          {
+            "id": "03837516641d07b0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "517fd04eb818a036",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "APM - ElasticStack/1. Overview.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 1. Overview"
+            }
+          },
+          {
+            "id": "85a4d8621610c814",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
+    }
+  },
+  "active": "303bf15837ac6965",
+  "lastOpenFiles": [
+    "K8S/Vận hành/rancher upgrade.md",
+    "APM - ElasticStack/1. Overview.md",
+    "APM - ElasticStack/4. Elastic Kibana Install.md",
+    "4. Elastic Kibana Install.pdf",
+    "K8S/Vận hành/Rebalance Workload.md",
+    "K8S/MetalLB BGP.md",
+    "Idea Todoist.md"
+  ]
+}

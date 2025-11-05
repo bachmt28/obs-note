@@ -88,24 +88,16 @@ docker run --name rancherv2101 -d --volumes-from rancher-data --restart=unless-s
 ## 6. **Kiểm tra sau nâng cấp**
 
 - Truy cập trình duyệt vào địa chỉ: `https://<IP hoặc domain Rancher>`
-    
 - Kiểm tra các chức năng chính:
-    
     - Giao diện dashboard
-        
     - Các cluster đang quản lý
-        
     - Auth, access control, tokens
-        
     - Các Apps/Catalogs (nếu có)
-        
 - Kiểm tra log container:
-    
     ```bash
     docker logs -f <container_id>
     ```
     
-
 ---
 
 ## 7. **Phương án khôi phục (Rollback)**
