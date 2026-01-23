@@ -1,6 +1,5 @@
 
 ---
-
 ## 🔁 **Tổng Quan Flow**
 
 ```mermaid

@@ -22,45 +22,34 @@
 
 ### 1. 🔐 **An toàn hơn – phân quyền đúng vai**
 
-|Vai trò|Jenkins|Tekton|
-|---|---|---|
-|Dev|Có thể bị lộ credential nếu webhook không kín|Chỉ được gắn TriggerBinding, không có quyền sửa Pipeline|
-|ANTT|Phải can thiệp UI Jenkins để confirm|Có thể xác nhận bằng `kubectl`, WebUI hoặc gắn thêm Trigger|
-|AM|Dễ nhầm giữa job của 20 repo|Tekton phân quyền rõ ràng theo repo/tag/namespace|
+| Vai trò | Jenkins                                       | Tekton                                                      |
+| ------- | --------------------------------------------- | ----------------------------------------------------------- |
+| Dev     | Có thể bị lộ credential nếu webhook không kín | Chỉ được gắn TriggerBinding, không có quyền sửa Pipeline    |
+| ANTT    | Phải can thiệp UI Jenkins để confirm          | Có thể xác nhận bằng `kubectl`, WebUI hoặc gắn thêm Trigger |
+| AM      | Dễ nhầm giữa job của 20 repo                  | Tekton phân quyền rõ ràng theo repo/tag/namespace           |
 
 ---
-
 ### 2. ⚙️ **Hiện đại hóa pipeline – chuẩn cloud-native**
 
 > Nếu Jenkins là nhà cổ kiểu phố cổ Hà Nội, thì Tekton là chung cư có bảo vệ, thang máy, bãi xe riêng, và... hệ thống phòng cháy chữa cháy tự động.
-
 - **Tách các bước thành container độc lập**
-    
 - Có thể `reuse` từng `Task` cho repo khác
-    
 - Gắn được security scan, SBOM, Cosign theo chuẩn SLSA
-    
-
 ---
-
 ### 3. 📈 **Quy mô lớn – vận hành càng dễ**
 
-|Tình huống|Jenkins|Tekton|
-|---|---|---|
-|10 repo|20 job Jenkins, phân quyền phức tạp|1 pipeline, 10 triggerBinding|
-|100 repo|Nổ dashboard|Tekton: lọc theo `label: repo=...` là xong|
+| Tình huống | Jenkins                             | Tekton                                     |
+| ---------- | ----------------------------------- | ------------------------------------------ |
+| 10 repo    | 20 job Jenkins, phân quyền phức tạp | 1 pipeline, 10 triggerBinding              |
+| 100 repo   | Nổ dashboard                        | Tekton: lọc theo `label: repo=...` là xong |
 
 ---
-
 ### 4. 🤝 **Dễ tích hợp hệ sinh thái DevSecOps**
-
 - Trivy, Cosign, SBOM Generator, OPA Gatekeeper, Kyverno…  
     → đều tích hợp vào Tekton như bước `Task`  
     → còn Jenkins thì phải chơi `sh "docker run ..."` cho mỏi tay
-    
 
 ---
-
 # ⚠️ III. Khi nào **không nên chuyển sang Tekton**?
 
 |Tình huống|Vì sao?|
@@ -70,7 +59,6 @@
 |❌ Toàn bộ hệ thống đã gắn chặt vào Jenkins plugin (vault, slack, approval...)|Chuyển sẽ mất công viết lại toàn bộ logic|
 
 ---
-
 # ✅ IV. Tổng kết :
 
 | Mục tiêu                                                           | Ghi chú                                                        |
@@ -84,13 +72,9 @@
 
 > ❝ Nếu ta giữ Jenkins như hiện tại, và **chỉ dùng 1 job `ScanPipeline`, 1 job `VeriBuildPipeline` cho toàn bộ repo/workload**,  
 > thì **liệu có đạt được hiệu quả tương tự như Tekton hay không?** ❞
-
 1. ✅ **Điều gì có thể làm được giống Tekton**
-    
 2. ⚠️ **Điều gì sẽ bất tiện hoặc phải hack**
-    
 3. ❌ **Điều gì Jenkins không thể đạt được, mà Tekton sinh ra để làm**
-    
 
 ---
 
@@ -120,22 +104,15 @@
 |Jenkins không native RBAC như Tekton|→ **Chia role dễ lỗi – Dev đôi khi vẫn có quyền gây hại**|
 
 ---
-
 ### 2. 🧱 **Isolation giữa các build**
 
 - Jenkins Job chia repo bằng `workspace/$REPO`, nhưng:
-    
     - Build từ nhiều repo vẫn dùng chung Jenkins agent
-        
     - Nếu Dev “trỏ” Dockerfile ngoài repo thì vẫn có thể inject bậy
-        
     - Phân quyền theo folder Jenkins không tách thực sự môi trường build
-        
-
 → **Không sandbox mạnh như Tekton (mỗi step chạy riêng trong Pod)**
 
 ---
-
 ### 3. 🧹 **Maintain & Trace Job**
 
 | Tình huống                                                                                      | Jenkins dễ bị rối                                          |
@@ -148,17 +125,16 @@
 
 # ❌ III. Jenkins **không thể đạt được** điều Tekton làm tốt
 
-|Tính năng|Jenkins không có (hoặc cực kỳ khó)|
-|---|---|
-|🧘 **Task reusable + modular**|Tekton Task viết 1 lần, dùng cho mọi pipeline|
-|🧱 **RBAC phân tầng theo namespace / role**|Jenkins không phân quyền sâu theo Task|
-|🧪 **Standard hoá security pipeline** (SLSA, Sigstore, SBOM trace)|Jenkins phải script hết|
-|📦 **Audit trail chuẩn K8s (per PipelineRun)**|Không có CRD, không có object traceable|
-|☁️ **Kết hợp native GitOps (ArgoCD, Flux)**|Tekton rất phù hợp với GitOps flow|
-|🔄 **Scale theo workload (per Pod)**|Jenkins phải scale agent – không tự scale step được|
+| Tính năng                                                          | Jenkins không có (hoặc cực kỳ khó)                  |
+| ------------------------------------------------------------------ | --------------------------------------------------- |
+| 🧘 **Task reusable + modular**                                     | Tekton Task viết 1 lần, dùng cho mọi pipeline       |
+| 🧱 **RBAC phân tầng theo namespace / role**                        | Jenkins không phân quyền sâu theo Task              |
+| 🧪 **Standard hoá security pipeline** (SLSA, Sigstore, SBOM trace) | Jenkins phải script hết                             |
+| 📦 **Audit trail chuẩn K8s (per PipelineRun)**                     | Không có CRD, không có object traceable             |
+| ☁️ **Kết hợp native GitOps (ArgoCD, Flux)**                        | Tekton rất phù hợp với GitOps flow                  |
+| 🔄 **Scale theo workload (per Pod)**                               | Jenkins phải scale agent – không tự scale step được |
 
 ---
-
 ## 🎯 Kết luận – nên chọn gì?
 
 |Tình huống|Lời khuyên|
@@ -199,11 +175,8 @@ sequenceDiagram
 🧱 **Vấn đề chính**:
 
 - UI Jenkins không phân biệt được build theo repo
-    
 - Phải rely vào `echo`, `notify` để Dev biết build của mình đâu
-    
 - Không có CRD/PipelineRun để trace lịch sử dễ dàng
-    
 
 ---
 
@@ -236,14 +209,10 @@ sequenceDiagram
 ```
 
 ✅ **Lợi thế**:
-
 - Mỗi `PipelineRun` có metadata rõ ràng `repo/tag`
-    
 - AM/Dev/ANTT dễ tra cứu theo label
-    
 - Tekton Dashboard hỗ trợ filter theo repo
     
-
 ---
 
 # ✅ Checklist “Bắt buộc phải Script” nếu dùng Jenkins Shared Job
@@ -258,10 +227,7 @@ sequenceDiagram
 | Reuse Task scan/build cho nhiều repo | ❌ Jenkinsfile phải clone logic hoặc dùng shared lib | ✅ Task/Step dùng lại thoải mái                   |
 | Hiển thị log riêng từng pipeline     | ✅ Nhưng log chung job, phải tìm                     | ✅ Log theo từng PipelineRun/TaskRun rõ ràng      |
 |                                      |                                                     |                                                  |
-
----
-
-Tóm lại: Nếu xác định cần maintain lâu dài cho > 10 repo, có phân quyền đa vai, và cần build an toàn minh bạch → **Tekton vượt trội ở tính quản lý và trace**. Nếu chỉ dừng ở Jenkins, thì phải đầu tư rất nhiều script để vá từng chỗ mà Tekton xử lý tự nhiên.
+- Tóm lại: Nếu xác định cần maintain lâu dài cho > 10 repo, có phân quyền đa vai, và cần build an toàn minh bạch → **Tekton vượt trội ở tính quản lý và trace**. Nếu chỉ dừng ở Jenkins, thì phải đầu tư rất nhiều script để vá từng chỗ mà Tekton xử lý tự nhiên.
 
 ---
 ## 📊 Bảng quy chiếu: Jenkins vs Tekton

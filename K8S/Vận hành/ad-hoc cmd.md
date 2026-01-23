@@ -135,15 +135,33 @@ done
 ```
 
 ```sh
-docker images --format '{{.Repository}} {{.ID}}' | while read repo id; do
-    created=$(docker inspect --format '{{.Created}}' "$id" 2>/dev/null)
-    [ -z "$created" ] && continue
+cutoff_days=7
+cutoff_ts=$(date -d "$cutoff_days days ago" +%s)
+
+docker images --format '{{.Repository}} {{.ID}}' \
+| grep 'seauat.com.vn' \
+| while read repo id; do
+    created=$(docker inspect --format '{{.Created}}' "$id" 2>/dev/null) || continue
 
     created_ts=$(date -d "$created" +%s)
 
-    if [ "$created_ts" -lt "$cutoff" ]; then
+    if [ "$created_ts" -lt "$cutoff_ts" ]; then
         echo "🔥 Removing old image: $repo ($id)"
         docker rmi -f "$id"
     fi
 done
+
+```
+
+```sh
+du -x -BG --exclude="/var/lib/docker/*" --exclude="/tmp/*" / \
+  | sort -nr | head -n50
+
+```
+## stuck terminating
+
+```sh
+kubectl patch svc <svc-name> -n <ns> \
+--type=merge \
+-p '{"metadata":{"finalizers":[]}}'
 ```

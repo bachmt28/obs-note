@@ -22,10 +22,8 @@
 ### 2. Có cần thiết bị mạng phối hợp không?
 
 **CÓ**. BGP mode **bắt buộc** cần một “peer” hiểu BGP:
-
 * Switch/router ở tầng aggregation/ToR phải hỗ trợ **BGP**.
 * Hoặc dựng thêm **FRR/FRR-k8s** như một BGP router ảo để làm “cầu nối” với hạ tầng.
-
 Nếu thiết bị mạng hiện tại không support BGP → MetalLB BGP **không hoạt động**.
 
 ---

@@ -1,14 +1,8 @@
----
-
-# 📘 **Tài liệu Hoá Toàn Diện – Cải Tiến Quy Trình DevSecOps**
-
----
----
 ## 🧭 I. Diễn giải lại quy trình – trước và sau CICD
 
 ### 🔹 Truyền thống (Pre-CICD)
 
-```mermaid
+````mermaid
 sequenceDiagram
     participant Dev
     participant ANTT
@@ -39,18 +33,11 @@ sequenceDiagram
     Jenkins->>AM: Thông báo image đã build & phê duyệt
     Jenkins->>Dev: Thông báo image đã build & phê duyệt
 ```
-
 > ❌ Lỗ hổng:
-> 
 > - Dev có toàn quyền thao tác pipeline → **có thể lách luật**
->     
 > - ANTT không kiểm soát được Dockerfile / build thật sự
->     
 > - Không có liên kết xác thực giữa scan và build
->     
 > - Image là sản phẩm cuối nhưng chưa từng được kiểm duyệt độc lập
->     
-
 ---
 
 ## ⚠️ II. Các vấn đề cốt lõi của mô hình UAT hiện tại
@@ -61,11 +48,10 @@ sequenceDiagram
 | Token gửi cho ANTT          | Dễ bị lộ                                                                                         | Nếu trong global lib → không còn bí mật |
 | Không xác minh build đầu ra | Không biết image có sạch không                                                                   | Cần kiểm tra thực tế build context      |
 | AM từ chối build            | So với truyền thống, AM thay vì được 'nhận hàng' sạch 100%, ==người **'đóng hàng'** lại là dev== | Không thể kiểm chứng Dockerfile         |
+|                             |                                                                                                  |                                         |
 
 ---
-
 ## 🔬 III. Image Scan – Mức độ hiệu quả
-
 ✅ Có thể phát hiện:
 
 |Thành phần|Có thể phát hiện|Công cụ|
@@ -76,16 +62,11 @@ sequenceDiagram
 |Runtime|Hành vi build-time|Falco (runtime)|
 
 ❌ Không phát hiện được:
-
 - Logic mã độc giấu trong code bị build
-    
 - Build script bị chỉnh để cấy mã độc sau khi scan
-    
-
 ⛔ Do đó, scan image **không thay thế được việc scan mã nguồn + xác minh build logic**.
 
 ---
-
 ## 🌱 IV. Cải tiến  (Concept)
 
 > Toàn bộ pipeline phải phân tầng:
@@ -180,17 +161,15 @@ artifact:
 
 ## 🛠 Công cụ hỗ trợ cho AM (không cần build nhưng vẫn kiểm tra được)
 
-|Mục tiêu|Công cụ / Giao diện|
-|---|---|
-|Xem layer, build logic|[Dive](https://github.com/wagoodman/dive)|
-|So sánh image trước/sau|`container-diff`|
-|Kiểm tra policy|[Dockle](https://github.com/goodwithtech/dockle)|
-|Xem log build lại|GitLab UI / Tekton Dashboard|
+| Mục tiêu                | Công cụ / Giao diện                              |
+| ----------------------- | ------------------------------------------------ |
+| Xem layer, build logic  | [Dive](https://github.com/wagoodman/dive)        |
+| So sánh image trước/sau | `container-diff`                                 |
+| Kiểm tra policy         | [Dockle](https://github.com/goodwithtech/dockle) |
+| Xem log build lại       | GitLab UI / Tekton Dashboard                     |
 
 > 🔐 Có thể xác minh lại image từ commit gốc nếu cần.
-
 ---
-
 ## ✍️ Giao ước bàn giao Dockerfile (cho Dev)
 
 | Tiêu chí                     | Mô tả                            |
@@ -202,15 +181,9 @@ artifact:
 | Ký toàn bộ context           | SHA256 hoặc Cosign Signature     |
 
 ---
-
 ## 🎯 Tổng kết chiến lược DevSecOps cải tiến
-
 - Dev bị cô lập khỏi logic CI/CD quan trọng
-    
 - Mọi bước scan, build, verify chạy ở vùng CI trung lập
-    
 - AM không build nhưng vẫn kiểm soát & xác minh được
-    
 - Mỗi artifact đều có hash, chữ ký, trace rõ ràng từ đầu đến cuối
-    
 - Có thể mở rộng audit trail, SBOM, policy scan theo chuẩn SLSA

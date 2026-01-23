@@ -1,5 +1,8 @@
 [
   "obsidian-tasks-plugin",
-  "obsidian-git",
-  "table-editor-obsidian"
+  "table-editor-obsidian",
+  "obsidian-excalidraw-plugin",
+  "obsidian-style-settings",
+  "dynamic-outline",
+  "mermaid-tools"
 ]

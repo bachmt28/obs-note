@@ -65,7 +65,8 @@ stages {
         s5.compileWorkloadK8S("${params.EVRM}")
         s5.deployWorkloadK8S("${params.EVRM}", vaultPath: 'bi/data/k8s', '' )
     }}}
-    
   }
 }
 ```
+
+asdasd

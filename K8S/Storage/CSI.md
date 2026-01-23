@@ -37,7 +37,6 @@ flowchart TB
 ```
 
 ---
-
 ## 🧱 III. Thành phần chính
 
 ### 1. **Controller Plugin**

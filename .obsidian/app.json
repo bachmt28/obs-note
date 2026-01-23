@@ -2,10 +2,12 @@
   "strictLineBreaks": true,
   "spellcheck": false,
   "pdfExportSettings": {
-    "pageSize": "Letter",
+    "pageSize": "A4",
     "landscape": false,
-    "margin": "0",
-    "downscalePercent": 100
+    "margin": "2",
+    "downscalePercent": 80
   },
-  "readableLineLength": false
+  "readableLineLength": false,
+  "promptDelete": false,
+  "alwaysUpdateLinks": true
 }
