@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DevSecOps/zap/raw.md",
-                "mode": "source",
+                "file": "DevSecOps/zap/diễn giải raw.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "raw"
+              "title": "diễn giải raw"
             }
           },
           {
@@ -236,8 +236,8 @@
             "state": {
               "type": "advanced-tables-toolbar",
               "state": {},
-              "icon": "spreadsheet",
-              "title": "Advanced Tables"
+              "icon": "lucide-ghost",
+              "title": "advanced-tables-toolbar"
             }
           },
           {
@@ -261,8 +261,8 @@
             "state": {
               "type": "mermaid-toolbar-view",
               "state": {},
-              "icon": "trident-custom",
-              "title": "Mermaid Toolbar"
+              "icon": "lucide-ghost",
+              "title": "mermaid-toolbar-view"
             }
           }
         ],
@@ -289,9 +289,10 @@
   },
   "active": "733a86054f4ebc3f",
   "lastOpenFiles": [
+    "DevSecOps/zap/raw.md",
+    "DevSecOps/zap/diễn giải raw.md",
     "Untitled 3.md",
     "raw.md",
-    "DevSecOps/zap/raw.md",
     "DevSecOps/zap",
     "K8S-Backup/Chi tiết các tính năng Enterprise/Immutable Backup.md",
     "K8S-Backup/Chi tiết các tính năng Enterprise/K10 Transformation.md",
@@ -318,7 +319,6 @@
     "CDP/Chuẩn bị - note draft.md",
     "CDP/CDP Install - Init qua UI.md",
     "CDP/CDP Architecture.md",
-    "APM - ElasticStack/1. Overview.md",
     "Pasted image 20251226172053.png",
     "3ds",
     "DevSecOps/Flow/tool-centric/sequence diagram/UAT CI.svg",
