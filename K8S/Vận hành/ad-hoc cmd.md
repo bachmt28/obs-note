@@ -165,3 +165,9 @@ kubectl patch svc <svc-name> -n <ns> \
 --type=merge \
 -p '{"metadata":{"finalizers":[]}}'
 ```
+
+
+
+kubectl patch pod <svc-name> -n <ns> \
+--type=merge \
+-p '{"metadata":{"finalizers":[]}}'

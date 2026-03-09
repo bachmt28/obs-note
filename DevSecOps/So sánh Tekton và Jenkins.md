@@ -52,11 +52,11 @@
 ---
 # ⚠️ III. Khi nào **không nên chuyển sang Tekton**?
 
-|Tình huống|Vì sao?|
-|---|---|
-|❌ Không có K8s (hoặc không có đội DevOps duy trì nó)|Tekton cần chạy trên Kubernetes|
-|❌ AM, ANTT chưa quen YAML + kubectl|Tekton không có UI đẹp như Jenkins – Dashboard đơn giản, cần CLI|
-|❌ Toàn bộ hệ thống đã gắn chặt vào Jenkins plugin (vault, slack, approval...)|Chuyển sẽ mất công viết lại toàn bộ logic|
+| Tình huống                                                                    | Vì sao?                                                          |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| ❌ Không có K8s (hoặc không có đội DevOps duy trì nó)                          | Tekton cần chạy trên Kubernetes                                  |
+| ❌ AM, ANTT chưa quen YAML + kubectl                                           | Tekton không có UI đẹp như Jenkins – Dashboard đơn giản, cần CLI |
+| ❌ Toàn bộ hệ thống đã gắn chặt vào Jenkins plugin (vault, slack, approval...) | Chuyển sẽ mất công viết lại toàn bộ logic                        |
 
 ---
 # ✅ IV. Tổng kết :

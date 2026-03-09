@@ -9,5 +9,7 @@
   },
   "readableLineLength": false,
   "promptDelete": false,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "showLineNumber": false,
+  "rightToLeft": false
 }
